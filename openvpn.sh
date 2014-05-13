@@ -93,9 +93,9 @@ make install DESTDIR=$BASE
 ########### #################################################################
 
 mkdir $SRC/openvpn && cd $SRC/openvpn
-$WGET http://swupdate.openvpn.org/community/releases/openvpn-2.3.3.tar.gz
-tar zxvf openvpn-2.3.3.tar.gz
-cd openvpn-2.3.3
+$WGET http://swupdate.openvpn.org/community/releases/openvpn-2.3.4.tar.gz
+tar zxvf openvpn-2.3.4.tar.gz
+cd openvpn-2.3.4
 
 LDFLAGS=$LDFLAGS \
 CPPFLAGS=$CPPFLAGS \
