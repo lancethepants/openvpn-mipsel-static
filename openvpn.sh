@@ -42,9 +42,9 @@ make install DESTDIR=$BASE
 ########### #################################################################
 
 mkdir -p $SRC/openssl && cd $SRC/openssl
-$WGET http://www.openssl.org/source/openssl-1.0.1h.tar.gz
-tar zxvf openssl-1.0.1h.tar.gz
-cd openssl-1.0.1h
+$WGET http://www.openssl.org/source/openssl-1.0.1j.tar.gz
+tar zxvf openssl-1.0.1j.tar.gz
+cd openssl-1.0.1j
 
 cat << "EOF" > openssl.patch
 --- Configure_orig      2013-11-19 11:32:38.755265691 -0700
@@ -75,9 +75,9 @@ make CC=mipsel-linux-gcc install INSTALLTOP=$DEST OPENSSLDIR=$DEST/ssl
 ######## ####################################################################
 
 mkdir $SRC/lzo2 && cd $SRC/lzo2
-$WGET http://www.oberhumer.com/opensource/lzo/download/lzo-2.06.tar.gz
-tar zxvf lzo-2.06.tar.gz
-cd lzo-2.06
+$WGET http://www.oberhumer.com/opensource/lzo/download/lzo-2.08.tar.gz
+tar zxvf lzo-2.08.tar.gz
+cd lzo-2.08
 
 LDFLAGS=$LDFLAGS \
 CPPFLAGS=$CPPFLAGS \
@@ -93,9 +93,9 @@ make install DESTDIR=$BASE
 ########### #################################################################
 
 mkdir $SRC/openvpn && cd $SRC/openvpn
-$WGET http://swupdate.openvpn.org/community/releases/openvpn-2.3.4.tar.gz
-tar zxvf openvpn-2.3.4.tar.gz
-cd openvpn-2.3.4
+$WGET http://swupdate.openvpn.org/community/releases/openvpn-2.3.6.tar.gz
+tar zxvf openvpn-2.3.6.tar.gz
+cd openvpn-2.3.6
 
 LDFLAGS=$LDFLAGS \
 CPPFLAGS=$CPPFLAGS \
