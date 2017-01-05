@@ -22,9 +22,9 @@ mkdir $SRC
 ######## ####################################################################
 
 mkdir $SRC/zlib && cd $SRC/zlib
-$WGET http://zlib.net/zlib-1.2.8.tar.gz
-tar zxvf zlib-1.2.8.tar.gz
-cd zlib-1.2.8
+$WGET http://www.zlib.net/zlib-1.2.10.tar.gz
+tar zxvf zlib-1.2.10.tar.gz
+cd zlib-1.2.10
 
 LDFLAGS=$LDFLAGS \
 CPPFLAGS=$CPPFLAGS \
@@ -42,9 +42,9 @@ make install DESTDIR=$BASE
 ########### #################################################################
 
 mkdir -p $SRC/openssl && cd $SRC/openssl
-$WGET https://www.openssl.org/source/openssl-1.0.2d.tar.gz
-tar zxvf openssl-1.0.2d.tar.gz
-cd openssl-1.0.2d
+$WGET https://www.openssl.org/source/openssl-1.0.2j.tar.gz
+tar zxvf openssl-1.0.2j.tar.gz
+cd openssl-1.0.2j
 
 ./Configure linux-mips32 \
 -mtune=mips32 -mips32 -ffunction-sections -fdata-sections -Wl,--gc-sections \
@@ -78,17 +78,17 @@ make install DESTDIR=$BASE
 ########### #################################################################
 
 mkdir $SRC/openvpn && cd $SRC/openvpn
-$WGET http://swupdate.openvpn.org/community/releases/openvpn-2.3.8.tar.gz
-tar zxvf openvpn-2.3.8.tar.gz
-cd openvpn-2.3.8
+$WGET https://swupdate.openvpn.org/community/releases/openvpn-2.4.0.tar.gz
+tar zxvf openvpn-2.4.0.tar.gz
+cd openvpn-2.4.0
 
+LIBS="-lssl -lcrypto -lz" \
 LDFLAGS=$LDFLAGS \
 CPPFLAGS=$CPPFLAGS \
 CFLAGS=$CFLAGS \
 CXXFLAGS=$CXXFLAGS \
 $CONFIGURE \
---disable-plugin-auth-pam \
---enable-password-save
+--disable-plugins
 
 $MAKE LIBS="-all-static -lssl -lcrypto -lz -llzo2"
 make install DESTDIR=$BASE/openvpn
